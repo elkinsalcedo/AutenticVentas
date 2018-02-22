@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="webjars/bootstrap/3.2.0/css/bootstrap.css" />
+<link rel="stylesheet"
+	href="webjars/bootstrap-material-design/0.2.1/css/material.css" />
+<title>Ventas - Autetic</title>
+<script type="text/javascript" src="webjars/jquery/2.1.1/jquery.js"></script>
+<script type="text/javascript"
+	src="webjars/angularjs/1.3.8/angular.min.js"></script>
+<script type="text/javascript"
+	src="webjars/angularjs/1.3.8/angular-resource.min.js"></script>
+<script type="text/javascript"
+	src="webjars/bootstrap-material-design/0.2.1/js/material.js"></script>
+<script type="text/javascript" th:src="@{/js/controller.js}"></script>
+</head>
+<body>
+
+	<div class="row" ng-app="autenticapp">
+		<br />
+		<div class="container">
+			<div id="listaVenta" class="col-sm-offset-1 col-sm-10"
+				ng-controller="listaventacontroller">
+				<div class="list-group">
+					<div class="list-group-item">
+						<h1 class="list-group-item-heading">
+							<strong>Ventas</strong>
+						</h1>
+						<h4>{{resultMessage}}</h4>
+						<div ng-repeat="venta in respuestaVentas" class="list-group-item"
+							style="margin-top: 16px">
+							<div class="row-content">
+								<h2 class="list-group-item-heading">Venta/Factura #
+									{{venta.id}}</h2>
+								<strong>IdPreventa : </strong> <span>{{venta.idpreventa.id}}</span><br />
+								<strong>Valor total : </strong> <span>{{venta.valortotal}}</span><br />
+								<strong>Comercial : </strong><span>
+									{{venta.idpreventa.comercial}}</span><br /> <strong>Despacho
+									: </strong> <span>{{venta.idpreventa.lugardespacho}}</span><br />
+
+								<h4 class="list-group-item-heading">Productos asociados</h4>
+								<div ng-repeat="producto in venta.idpreventa.preventaproducto"
+									class="list-group-item">
+									<strong>IdProducto : </strong><span>{{producto.idproducto.id}}</span>
+									| <strong>Cantidad : </strong><span>{{producto.cantidad}}</span>
+									| <strong>Nombre : </strong><span>{{producto.idproducto.nombre}}</span>
+									| <strong>Valor Unitario : </strong><span>{{producto.idproducto.valor}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <xs:schema xmlns:tns="http://ws.autentic.com/AutenticWS" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ws.autentic.com/AutenticWS">
+      <xs:element name="CrearVentaRequest">
+        <xs:complexType>
+          <xs:sequence>
+
+          	<xs:element name="idProducto" type="xs:integer"
+          		maxOccurs="1" minOccurs="1">
+          	</xs:element>
+          	<xs:element name="cantidadProducto" type="xs:integer"
+          		maxOccurs="1" minOccurs="1">
+          	</xs:element>
+          	<xs:element name="idPreventa" type="xs:integer"
+          		maxOccurs="1" minOccurs="1">
+          	</xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CrearVentaResponse">
+        <xs:complexType>
+          <xs:sequence>
+
+          	<xs:element name="resultadoOperacion"
+          		type="tns:ResultadoOperacionType" maxOccurs="1"
+          		minOccurs="1">
+          	</xs:element>
+          	<xs:element name="resultadoVenta"
+          		type="tns:ResultadoVentaType" maxOccurs="1" minOccurs="0">
+          	</xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    
+      <xs:complexType name="ResultadoOperacionType">
+      	<xs:sequence>
+      		<xs:element name="codigo" type="xs:integer"
+      			maxOccurs="1" minOccurs="1">
+      		</xs:element>
+      		<xs:element name="mensaje" type="xs:string" maxOccurs="1" minOccurs="1"></xs:element>
+      	</xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="ResultadoVentaType">
+      	<xs:sequence>
+      		<xs:element name="idFactura" type="xs:integer"
+      			maxOccurs="1" minOccurs="1">
+      		</xs:element>
+      		<xs:element name="valor" type="xs:double" maxOccurs="1"
+      			minOccurs="1">
+      		</xs:element>
+      		<xs:element name="lugarDespacho" type="xs:string" maxOccurs="1" minOccurs="1"></xs:element>
+      	</xs:sequence>
+      </xs:complexType>
+</xs:schema>
